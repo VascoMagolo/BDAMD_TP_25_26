@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/2.0.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.1.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.2.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.3.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.4.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.5.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.6.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.7.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.8.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
-    <file url="file://$PROJECT_DIR$/2.9.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.0.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.1.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.2.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.3.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.4.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.5.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.6.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.7.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.8.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
+    <file url="file://$PROJECT_DIR$/src/2.9.sql" value="d45e8f2a-c12c-4143-a5fa-545d40441684" />
   </component>
 </project>
