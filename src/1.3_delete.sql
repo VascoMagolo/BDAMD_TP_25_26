@@ -1,0 +1,15 @@
+DELETE FROM Transport;
+DELETE FROM DispatchNoteLine;
+DELETE FROM DispatchNote;
+DELETE FROM SalesOrderLine;
+DELETE FROM SalesOrder;
+DELETE FROM Stock;
+DELETE FROM WarehouseStockDefinition;
+DELETE FROM PriceHistory;
+DELETE FROM Product;
+DELETE FROM Customer;
+DELETE FROM Employee;
+DELETE FROM Carrier;
+DELETE FROM PhysicalZone;
+DELETE FROM Warehouse;
+DELETE FROM GeographicZone;
