@@ -1,227 +1,300 @@
 INSERT INTO GeographicZone (id_geo_zone, designation) VALUES
-                                                          (1, 'Zona Norte - Porto'),
-                                                          (2, 'Zona Norte - Braga'),
-                                                          (3, 'Zona Centro - Coimbra'),
-                                                          (4, 'Zona Centro - Leiria'),
-                                                          (5, 'Zona Sul - Lisboa'),
-                                                          (6, 'Zona Sul - Algarve'),
-                                                          (7, 'Zona Interior - Viseu'),
-                                                          (8, 'Zona Interior - Guarda'),
-                                                          (9, 'Zona Madeira'),
-                                                          (10, 'Zona Açores');
-DECLARE @i INT = 11;
-WHILE @i <= 30
-    BEGIN
-        INSERT INTO GeographicZone (id_geo_zone, designation) VALUES (@i, 'Zona Genérica ' + CAST(@i AS VARCHAR));
-        SET @i = @i + 1;
-    END;
-GO
-
-INSERT INTO Carrier (carrier_id, name, nif, phone, cost_per_hour) VALUES
-                                                                      (1, 'TransRapida', '500100100', '910000001', 25.50),
-                                                                      (2, 'LogisticaTotal', '500100200', '910000002', 20.00),
-                                                                      (3, 'NorteCargas', '500100300', '910000003', 18.00);
-DECLARE @i INT = 4;
-WHILE @i <= 30
-    BEGIN
-        INSERT INTO Carrier (carrier_id, name, nif, phone, cost_per_hour)
-        VALUES (@i, 'Transportadora ' + CAST(@i AS VARCHAR), '500100' + CAST(@i AS VARCHAR), '9100000' + CAST(@i AS VARCHAR), 20 + @i);
-        SET @i = @i + 1;
-    END;
-GO
-
+                                                          (1, 'Zona Norte'), (2, 'Zona Centro'), (3, 'Zona Sul'), (4, 'Zona Este'), (5, 'Zona Oeste'),
+                                                          (6, 'Zona Minho'), (7, 'Zona Douro Litoral'), (8, 'Zona Trás-os-Montes'), (9, 'Zona Beira Alta'), (10, 'Zona Beira Baixa'),
+                                                          (11, 'Zona Ribatejo'), (12, 'Zona Alentejo Litoral'), (13, 'Zona Baixo Alentejo'), (14, 'Zona Algarve Barlavento'), (15, 'Zona Algarve Sotavento'),
+                                                          (16, 'Zona Grande Lisboa'), (17, 'Zona Grande Porto'), (18, 'Zona Península de Setúbal'), (19, 'Zona Oeste e Leiria'), (20, 'Zona Aveiro e Coimbra'),
+                                                          (21, 'Zona Madeira'), (22, 'Zona Açores Oriental'), (23, 'Zona Açores Central'), (24, 'Zona Açores Ocidental'), (25, 'Zona Fronteiriça Norte'),
+                                                          (26, 'Zona Fronteiriça Centro'), (27, 'Zona Fronteiriça Sul'), (28, 'Zona Litoral Norte'), (29, 'Zona Litoral Centro'), (30, 'Zona Litoral Sul');
 INSERT INTO Warehouse (warehouse_id, name, address, latitude, longitude, id_geo_zone) VALUES
-                                                                                          (1, 'Armazém Central Porto', 'Rua do Freixo, Porto', 41.1579, -8.6291, 1),
-                                                                                          (2, 'XPTO', 'Rua Desconhecida, Braga', 41.5454, -8.4265, 2),
-                                                                                          (3, 'Armazém Lisboa', 'Av da Liberdade, Lisboa', 38.7223, -9.1393, 5),
-                                                                                          (4, 'Armazém Coimbra', 'Rua do Mondego', 40.2033, -8.4103, 3),
-                                                                                          (5, 'Armazém Algarve', 'Estrada de Faro', 37.0179, -7.9308, 6);
-DECLARE @i INT = 6;
-WHILE @i <= 30
-    BEGIN
-        INSERT INTO Warehouse (warehouse_id, name, address, latitude, longitude, id_geo_zone)
-        VALUES (@i, 'Armazém ' + CAST(@i AS VARCHAR), 'Rua ' + CAST(@i AS VARCHAR), 40.0 + @i*0.01, -8.0 + @i*0.01, 1);
-        SET @i = @i + 1;
-    END;
-GO
+                                                                                          (1, 'Armazém Porto Principal', 'Rua da Indústria, 100, Porto', 41.157945, -8.629105, 1),
+                                                                                          (2, 'Armazém Braga', 'Avenida Central, 250, Braga', 41.552364, -8.428155, 1),
+                                                                                          (3, 'Armazém Covilhã', 'Estrada Industrial, 45, Covilhã', 40.287661, -7.500405, 2),
+                                                                                          (4, 'Armazém Viseu', 'Parque Logístico, 12, Viseu', 40.662222, -7.265556, 2),
+                                                                                          (5, 'Armazém Lisboa', 'Rua do Comércio, 500, Lisboa', 38.722252, -9.139337, 3),
+                                                                                          (6, 'Armazém Évora', 'Zona Industrial, 78, Évora', 38.656139, -8.900833, 3),
+                                                                                          (7, 'Armazém Castelo Branco', 'Complexo Logístico, 33, Castelo Branco', 40.283889, -7.500833, 4),
+                                                                                          (8, 'Armazém Aveiro', 'Rua do Porto, 180, Aveiro', 40.656111, -8.655556, 5),
+                                                                                          (9, 'Armazém Santarém', 'Rua do Tejo, 10, Santarém', 39.233333, -8.683333, 11),
+                                                                                          (10, 'Armazém Faro', 'Estrada do Aeroporto, Faro', 37.0179, -7.9308, 14),
+                                                                                          (11, 'Armazém Vila Real', 'Zona Industrial Constantim', 41.3000, -7.7400, 8),
+                                                                                          (12, 'Armazém Bragança', 'Av das Cantarias', 41.8000, -6.7500, 8),
+                                                                                          (13, 'Armazém Viana', 'Rua do Mar, Viana do Castelo', 41.6900, -8.8300, 6),
+                                                                                          (14, 'Armazém Leiria', 'Estrada Nacional 1, Leiria', 39.7400, -8.8000, 19),
+                                                                                          (15, 'Armazém Guarda', 'Parque PLIE, Guarda', 40.5300, -7.2600, 9),
+                                                                                          (16, 'Armazém Portalegre', 'Zona Industrial, Portalegre', 39.2900, -7.4300, 12),
+                                                                                          (17, 'Armazém Beja', 'Rua do Alentejo, Beja', 38.0100, -7.8600, 13),
+                                                                                          (18, 'Armazém Setúbal', 'Porto de Setúbal', 38.5200, -8.8800, 18),
+                                                                                          (19, 'Armazém Funchal', 'Zona Franca, Madeira', 32.6500, -16.9000, 21),
+                                                                                          (20, 'Armazém Ponta Delgada', 'Aeroporto João Paulo II', 37.7400, -25.6700, 22),
+                                                                                          (21, 'Armazém Angra', 'Porto de Pipas', 38.6500, -27.2100, 23),
+                                                                                          (22, 'Armazém Horta', 'Zona Portuária', 38.5300, -28.6200, 23),
+                                                                                          (23, 'Armazém Portimão', 'Zona Ribeirinha', 37.1300, -8.5300, 14),
+                                                                                          (24, 'Armazém Guimarães', 'Zona Industrial de Silvares', 41.4400, -8.2900, 1),
+                                                                                          (25, 'Armazém Chaves', 'Parque Empresarial', 41.7400, -7.4700, 8),
+                                                                                          (26, 'Armazém Lamego', 'Zona Industrial Várzea', 41.0900, -7.8100, 9),
+                                                                                          (27, 'Armazém Tomar', 'Agro-Parque', 39.6000, -8.4100, 11),
+                                                                                          (28, 'Armazém Caldas', 'Zona Industrial', 39.4000, -9.1300, 19),
+                                                                                          (29, 'Armazém Figueira', 'Porto Comercial', 40.1500, -8.8500, 20),
+                                                                                          (30, 'XPTO', 'Localização Secreta', 41.0000, -8.0000, 1);
 
 INSERT INTO PhysicalZone (physical_zone_id, warehouse_id, designation, capacity_volume) VALUES
-                                                                                            (1, 1, 'Zona A1 - Receção', 500),
-                                                                                            (2, 1, 'Zona A2 - Stock Grande', 1000),
-                                                                                            (3, 2, 'Zona X1 - XPTO Principal', 2000), -- XPTO
-                                                                                            (4, 2, 'Zona X2 - XPTO Secundária', 500), -- XPTO
-                                                                                            (5, 3, 'Zona L1', 600);
-DECLARE @i INT = 6;
-WHILE @i <= 40
-    BEGIN
-        INSERT INTO PhysicalZone (physical_zone_id, warehouse_id, designation, capacity_volume)
-        VALUES (@i, ( (@i % 5) + 1 ), 'Zona Auto ' + CAST(@i AS VARCHAR), 100); -- Distribui pelos primeiros 5 armazéns
-        SET @i = @i + 1;
-    END;
-GO
+                                                                                            (1, 1, 'Corredor A', 500.00), (2, 1, 'Corredor B', 600.00), (3, 1, 'Zona Frigoríficos', 300.00), (4, 1, 'Zona Pequenos Artigos', 400.00),
+                                                                                            (5, 2, 'Corredor A', 450.00), (6, 2, 'Corredor B', 550.00), (7, 2, 'Zona Ferragens', 350.00),
+                                                                                            (8, 3, 'Corredor A', 480.00), (9, 3, 'Corredor B', 520.00), (10, 3, 'Zona Tintas', 280.00),
+                                                                                            (11, 4, 'Corredor A', 400.00), (12, 4, 'Zona Especial', 300.00),
+                                                                                            (13, 5, 'Corredor A', 600.00), (14, 5, 'Corredor B', 700.00), (15, 5, 'Zona Construção', 500.00),
+                                                                                            (16, 6, 'Corredor A', 420.00), (17, 6, 'Corredor B', 430.00),
+                                                                                            (18, 7, 'Corredor A', 380.00), (19, 7, 'Zona Equipamentos', 320.00),
+                                                                                            (20, 8, 'Corredor A', 440.00), (21, 8, 'Corredor B', 460.00), (22, 8, 'Zona Acabamentos', 340.00),
+                                                                                            (23, 1, 'Zona Reserva', 250.00), (24, 2, 'Zona Reserva', 200.00), (25, 3, 'Zona Reserva', 220.00),
+                                                                                            (26, 4, 'Zona Reserva', 180.00), (27, 5, 'Zona Reserva', 300.00), (28, 6, 'Zona Reserva', 150.00),
+                                                                                            (29, 30, 'Zona XPTO A', 5000.00), -- Zona para o armazém XPTO
+                                                                                            (30, 30, 'Zona XPTO B', 5000.00);
+INSERT INTO Carrier (carrier_id, name, nif, phone, cost_per_hour) VALUES
+                                                                      (1, 'Transportes Silva', '123456789', '221234567', 35.50), (2, 'Logística Express', '987654321', '219876543', 45.00), (3, 'Entregas Rápidas', '456789123', '234567890', 38.75),
+                                                                      (4, 'TransPor', '789123456', '227891234', 40.00), (5, 'Rotas do Sul', '321654987', '283216549', 32.50), (6, 'Distribuidora Centro', '654987321', '246549873', 36.25),
+                                                                      (7, 'Logística Nacional', '111222333', '211112223', 42.00), (8, 'Entregas 24h', '444555666', '224445556', 48.50), (9, 'TransRápido', '777888999', '237778889', 41.75),
+                                                                      (10, 'Logística Verde', '202030304', '252020303', 38.00), (11, 'Distribuição Norte', '505060607', '225050606', 39.50), (12, 'Entregas Eficientes', '808090910', '218080909', 44.25),
+                                                                      (13, 'TransCargo', '010101011', '201010101', 46.00), (14, 'Logística Plus', '121212121', '221212121', 43.50), (15, 'Distribuição Direta', '313131313', '243131313', 37.75),
+                                                                      (16, 'Entregas Seguras', '414141414', '234141414', 40.50), (17, 'TransLogística', '515151515', '215151515', 44.00), (18, 'Distribuição Rápida', '616161616', '226161616', 42.75),
+                                                                      (19, 'Logística Confiável', '717171717', '287171717', 35.00), (20, 'Entregas Pontuais', '818181818', '258181818', 39.25), (21, 'TransEstafeta', '919191919', '239191919', 45.50),
+                                                                      (22, 'Distribuição Flexível', '202020202', '212020202', 38.50), (23, 'Logística Integrada', '303030303', '223030303', 43.00), (24, 'Entregas Noturnas', '404040404', '244040404', 50.00),
+                                                                      (25, 'TransEspecial', '505050505', '285050505', 52.50), (26, 'Distribuição Premium', '606060606', '216060606', 55.00), (27, 'Logística Europeia', '707070707', '227070707', 48.00),
+                                                                      (28, 'Entregas Comerciais', '808080808', '238080808', 41.50), (29, 'TransLocal', '909090909', '259090909', 36.50), (30, 'Distribuição Regional', '010101012', '201010102', 37.25);
 
 INSERT INTO Employee (employee_id, citizen_card, name, address, tax_id, monthly_salary, category, birth_date, warehouse_id, supervisor_id, id_geo_zone) VALUES
-                                                                                                                                                            (1, '10000001', 'Chefe Silva', 'Porto', '200000001', 5000, 'Diretor', '1970-01-01', 1, NULL, 1),
-                                                                                                                                                            (2, '10000002', 'Supervisor Santos', 'Porto', '200000002', 1500, 'Supervisor', '1980-01-01', 1, 1, 1), -- Salário entre 1000 e 3000 (Query 2.8)
-                                                                                                                                                            (3, '10000003', 'Supervisor Costa', 'Braga', '200000003', 1200, 'Supervisor', '1982-01-01', 2, 1, 2);
+                                                                                                                                                            (1, '00000001', 'João Silva', 'Rua A, 1', '111111111', 3500.00, 'Supervisor', '1965-03-15', 1, NULL, 1),
+                                                                                                                                                            (2, '00000002', 'Maria Santos', 'Rua B, 2', '222222222', 3400.00, 'Supervisor', '1968-07-22', 2, NULL, 1),
+                                                                                                                                                            (3, '00000003', 'Pedro Costa', 'Rua C, 3', '333333333', 3600.00, 'Supervisor', '1966-01-10', 3, NULL, 2),
+                                                                                                                                                            (4, '00000004', 'Ana Oliveira', 'Rua D, 4', '444444444', 3300.00, 'Supervisor', '1969-05-18', 4, NULL, 2),
+                                                                                                                                                            (5, '00000005', 'Carlos Ferreira', 'Rua E, 5', '555555555', 3700.00, 'Supervisor', '1964-11-25', 5, NULL, 3),
+                                                                                                                                                            (6, '00000006', 'Filipa Martins', 'Rua F, 6', '666666666', 3250.00, 'Supervisor', '1970-02-14', 6, NULL, 3),
+                                                                                                                                                            (7, '00000007', 'Bruno Teixeira', 'Rua G, 7', '777777777', 3450.00, 'Supervisor', '1967-09-08', 7, NULL, 4),
+                                                                                                                                                            (8, '00000008', 'Catarina Dias', 'Rua H, 8', '888888888', 3550.00, 'Supervisor', '1968-04-20', 8, NULL, 5),
+                                                                                                                                                            (9, '00000009', 'Ricardo Gomes', 'Rua I, 9', '999999999', 1800.00, 'Vendedor', '1985-03-15', 1, 1, 1),
+                                                                                                                                                            (10, '00000010', 'Joana Pereira', 'Rua J, 10', '101010101', 1850.00, 'Vendedor', '1988-07-22', 1, 1, 1),
+                                                                                                                                                            (11, '00000011', 'Nuno Rocha', 'Rua K, 11', '111111112', 1900.00, 'Vendedor', '1984-01-10', 2, 2, 1),
+                                                                                                                                                            (12, '00000012', 'Helena Alves', 'Rua L, 12', '121212121', 1750.00, 'Vendedor', '1989-05-18', 2, 2, 1),
+                                                                                                                                                            (13, '00000013', 'Gonçalo Silva', 'Rua M, 13', '131313131', 1800.00, 'Vendedor', '1986-11-25', 3, 3, 2),
+                                                                                                                                                            (14, '00000014', 'Rita Costa', 'Rua N, 14', '141414141', 1900.00, 'Vendedor', '1987-02-14', 3, 3, 2),
+                                                                                                                                                            (15, '00000015', 'Duarte Oliveira', 'Rua O, 15', '151515151', 1850.00, 'Vendedor', '1985-09-08', 4, 4, 2),
+                                                                                                                                                            (16, '00000016', 'Sofia Mendes', 'Rua P, 16', '161616161', 1950.00, 'Vendedor', '1988-04-20', 5, 5, 3),
+                                                                                                                                                            (17, '00000017', 'Tiago Barbosa', 'Rua Q, 17', '171717171', 1900.00, 'Vendedor', '1986-08-12', 5, 5, 3),
+                                                                                                                                                            (18, '00000018', 'Amélia Marques', 'Rua R, 18', '181818181', 1850.00, 'Vendedor', '1987-06-30', 6, 6, 3),
+                                                                                                                                                            (19, '00000019', 'Vítor Neves', 'Rua S, 19', '191919191', 1800.00, 'Vendedor', '1989-01-15', 7, 7, 4),
+                                                                                                                                                            (20, '00000020', 'Matilde Couto', 'Rua T, 20', '202020201', 1900.00, 'Vendedor', '1988-10-22', 8, 8, 5),
+                                                                                                                                                            (21, '00000021', 'Filipe Araújo', 'Rua U, 21', '212121212', 1400.00, 'Fiel de Armazém', '1990-05-10', 1, 1, 1),
+                                                                                                                                                            (22, '00000022', 'Vanessa Rocha', 'Rua V, 22', '222222223', 1450.00, 'Fiel de Armazém', '1991-02-28', 1, 1, 1),
+                                                                                                                                                            (23, '00000023', 'Rúben Neves', 'Rua W, 23', '232323232', 1400.00, 'Fiel de Armazém', '1992-07-15', 2, 2, 1),
+                                                                                                                                                            (24, '00000024', 'Débora Silva', 'Rua X, 24', '242424242', 1420.00, 'Fiel de Armazém', '1993-03-22', 2, 2, 1),
+                                                                                                                                                            (25, '00000025', 'Márcio Gomes', 'Rua Y, 25', '252525252', 1430.00, 'Fiel de Armazém', '1991-08-10', 3, 3, 2),
+                                                                                                                                                            (26, '00000026', 'Fabiana Costa', 'Rua Z, 26', '262626262', 1410.00, 'Fiel de Armazém', '1992-04-05', 3, 3, 2),
+                                                                                                                                                            (27, '00000027', 'Diogo Martins', 'Avenida A, 27', '272727272', 1440.00, 'Fiel de Armazém', '1990-11-20', 4, 4, 2),
+                                                                                                                                                            (28, '00000028', 'Elisa Dias', 'Avenida B, 28', '282828282', 1450.00, 'Fiel de Armazém', '1991-09-15', 4, 4, 2),
+                                                                                                                                                            (29, '00000029', 'Hugo Ferreira', 'Avenida C, 29', '292929292', 1425.00, 'Fiel de Armazém', '1993-01-30', 5, 5, 3),
+                                                                                                                                                            (30, '00000030', 'Inês Oliveira', 'Avenida D, 30', '303030303', 1410.00, 'Fiel de Armazém', '1992-06-12', 5, 5, 3),
+                                                                                                                                                            (31, '00000031', 'Jaime Barbosa', 'Avenida E, 31', '313131314', 1600.00, 'Motorista', '1980-02-25', 1, 1, 1),
+                                                                                                                                                            (32, '00000032', 'Kátia Mendes', 'Avenida F, 32', '323232323', 1650.00, 'Motorista', '1982-05-18', 1, 1, 1),
+                                                                                                                                                            (33, '00000033', 'Leonardo Sousa', 'Avenida G, 33', '333333334', 1620.00, 'Motorista', '1981-08-10', 2, 2, 1),
+                                                                                                                                                            (34, '00000034', 'Madalena Couto', 'Avenida H, 34', '343434343', 1660.00, 'Motorista', '1983-03-15', 2, 2, 1),
+                                                                                                                                                            (35, '00000035', 'Natacha Gomes', 'Avenida I, 35', '353535353', 1640.00, 'Motorista', '1980-07-22', 1, 1, 1); -- Movido para armazém 1 para garantir maioria
 
-DECLARE @i INT = 4;
-WHILE @i <= 24
-    BEGIN
-        INSERT INTO Employee (employee_id, citizen_card, name, address, tax_id, monthly_salary, category, birth_date, warehouse_id, supervisor_id, id_geo_zone)
-        VALUES (@i, CAST(10000000 + @i AS VARCHAR), 'Funcionario A1_' + CAST(@i AS VARCHAR), 'Porto', CAST(200000000 + @i AS VARCHAR), 800, 'Operario', '1990-01-01', 1, 2, 1);
-        SET @i = @i + 1;
-    END;
-
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO Employee (employee_id, citizen_card, name, address, tax_id, monthly_salary, category, birth_date, warehouse_id, supervisor_id, id_geo_zone)
-        VALUES (@i, CAST(10000000 + @i AS VARCHAR), 'Funcionario Outro_' + CAST(@i AS VARCHAR), 'Braga', CAST(200000000 + @i AS VARCHAR), 850, 'Vendedor', '1992-01-01', 2, 3, 2);
-        SET @i = @i + 1;
-    END;
-GO
-
-DECLARE @i INT = 1;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO Customer (customer_id, name, address, zip_code, mobile, tax_id, type_class, id_geo_zone)
-        VALUES (@i, 'Cliente ' + CAST(@i AS VARCHAR), 'Morada ' + CAST(@i AS VARCHAR), '4000-00' + CAST(@i AS VARCHAR), '9100000' + CAST(@i AS VARCHAR), '2500000' + CAST(@i AS VARCHAR), CASE WHEN @i % 2 = 0 THEN 'VIP' ELSE 'Normal' END, 1);
-        SET @i = @i + 1;
-    END;
-GO
+INSERT INTO Customer (customer_id, name, address, zip_code, mobile, tax_id, type_class, id_geo_zone) VALUES
+                                                                                                         (1, 'Ferretaria do Porto', 'Rua Comercial, 1', '4000-001', '911111111', '101010101', 'Grande Cliente', 1),
+                                                                                                         (2, 'Bricolage Premium', 'Avenida Central, 50', '4000-100', '921111112', '102020202', 'VIP', 1),
+                                                                                                         (3, 'Construções Silva', 'Rua Industrial, 10', '4100-001', '931111113', '103030303', 'Pequeno Cliente', 1),
+                                                                                                         (4, 'Loja de Artigos', 'Avenida Norte, 200', '4000-200', '941111114', '104040404', 'Grande Cliente', 1),
+                                                                                                         (5, 'Reforma Express', 'Rua da Reforma, 15', '4200-001', '951111115', '105050505', 'Pequeno Cliente', 1),
+                                                                                                         (6, 'Madeiras e Tintas', 'Parque Industrial, 5', '4300-001', '961111116', '106060606', 'Grande Cliente', 1),
+                                                                                                         (7, 'DIY Center Porto', 'Rua do Comércio, 25', '4000-300', '971111117', '107070707', 'VIP', 1),
+                                                                                                         (8, 'Acabamentos Braga', 'Avenida da Liberdade, 100', '4700-001', '981111118', '108080808', 'Pequeno Cliente', 1),
+                                                                                                         (9, 'Construção Covilhã', 'Estrada Principal, 30', '6200-001', '911111119', '109090909', 'Grande Cliente', 2),
+                                                                                                         (10, 'Materiais de Obra', 'Rua Industrial, 50', '6300-001', '921111120', '110101010', 'Pequeno Cliente', 2),
+                                                                                                         (11, 'Viseu Reformas', 'Avenida da República, 80', '3500-001', '931111121', '111111111', 'Grande Cliente', 2),
+                                                                                                         (12, 'Loja Geral Centro', 'Rua Central, 45', '3800-001', '941111122', '112121212', 'Pequeno Cliente', 2),
+                                                                                                         (13, 'Construções Modernas', 'Zona Industrial, 20', '6200-500', '951111123', '113131313', 'VIP', 2),
+                                                                                                         (14, 'Reforma Total', 'Avenida da Industria, 100', '6300-500', '961111124', '114141414', 'Grande Cliente', 2),
+                                                                                                         (15, 'Artigos Diversos', 'Rua do Comércio, 60', '3500-100', '971111125', '115151515', 'Pequeno Cliente', 2),
+                                                                                                         (16, 'Construtura Lisboa', 'Rua do Comercio, 200', '1000-001', '981111126', '116161616', 'VIP', 3),
+                                                                                                         (17, 'Reforma Lisboa', 'Avenida da Liberdade, 250', '1000-100', '911111127', '117171717', 'Grande Cliente', 3),
+                                                                                                         (18, 'Materiais de Construção', 'Estrada do Sul, 30', '1900-001', '921111128', '118181818', 'Pequeno Cliente', 3),
+                                                                                                         (19, 'Évora Construções', 'Rua Industrial, 40', '7000-001', '931111129', '119191919', 'Grande Cliente', 3),
+                                                                                                         (20, 'DIY Évora', 'Avenida da República, 50', '7000-100', '941111130', '120202020', 'Pequeno Cliente', 3),
+                                                                                                         (21, 'Reforma Alentejo', 'Zona Industrial, 15', '7100-001', '951111131', '121212121', 'Grande Cliente', 3),
+                                                                                                         (22, 'Loja Sul Premium', 'Avenida Principal, 100', '1000-200', '961111132', '122222222', 'VIP', 3),
+                                                                                                         (23, 'Construções Castelo Branco', 'Rua Industrial, 25', '6000-001', '971111133', '123232323', 'Grande Cliente', 4),
+                                                                                                         (24, 'Reforma Este', 'Avenida Central, 60', '6000-100', '981111134', '124242424', 'Pequeno Cliente', 4),
+                                                                                                         (25, 'Artigos Construção', 'Rua do Comércio, 35', '6100-001', '911111135', '125252525', 'Grande Cliente', 4),
+                                                                                                         (26, 'Aveiro Reforma', 'Rua do Porto, 50', '3800-001', '921111136', '126262626', 'Grande Cliente', 5),
+                                                                                                         (27, 'Construções Aveiro', 'Avenida Industrial, 70', '3810-001', '931111137', '127272727', 'Pequeno Cliente', 5),
+                                                                                                         (28, 'DIY Aveiro', 'Rua Central, 40', '3800-100', '941111138', '128282828', 'VIP', 5),
+                                                                                                         (29, 'Reforma Costeira', 'Avenida da Costa, 25', '3900-001', '951111139', '129292929', 'Pequeno Cliente', 5),
+                                                                                                         (30, 'Materiais Oeste', 'Zona Industrial, 10', '3900-500', '961111140', '130303030', 'Grande Cliente', 5);
 
 INSERT INTO Product (product_ref, name, description, purchase_price, current_sell_price, unit_type) VALUES
-                                                                                                        (1, 'Produto espetacular', 'O melhor produto', 500, 1000, 'Unidade'),
-                                                                                                        (2, 'Parafuso Simples', 'Parafuso aco', 0.01, 0.05, 'Unidade'),
-                                                                                                        (3, 'Martelo', 'Ferramenta', 5, 12, 'Unidade'),
-                                                                                                        (4, 'Tinta Azul', 'Lata 5L', 10, 25, 'Lata');
-
-DECLARE @i INT = 5;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO Product (product_ref, name, description, purchase_price, current_sell_price, unit_type)
-        VALUES (@i, 'Produto Genérico ' + CAST(@i AS VARCHAR), 'Desc', 10, 20, 'Unidade');
-        SET @i = @i + 1;
-    END;
-GO
+                                                                                                        (1, 'Parafuso M8x25', 'Parafuso inox de aço carbono', 0.05, 0.15, 'unidade'),
+                                                                                                        (2, 'Prego Comum 2.5cm', 'Prego galvanizado comum', 0.02, 0.08, 'unidade'),
+                                                                                                        (3, 'Tinta Branca Interior', 'Tinta acrílica branca 20L', 25.00, 45.00, 'lata'),
+                                                                                                        (4, 'Tinta Cinzenta Exterior', 'Tinta exterior cinzenta 20L', 32.00, 55.00, 'lata'),
+                                                                                                        (5, 'Cimento Portland', 'Cimento portland 25kg', 6.00, 12.00, 'saco'),
+                                                                                                        (6, 'Areia Seca', 'Areia seca fina 20kg', 3.00, 8.00, 'saco'),
+                                                                                                        (7, 'Aço Carbono Barra', 'Barra aço carbono 1m', 12.00, 28.00, 'unidade'),
+                                                                                                        (8, 'Madeira Pinho 2x4cm', 'Madeira pinho serrada 2x4cm', 8.00, 18.00, 'metro'),
+                                                                                                        (9, 'Placa Gesso Cartonado', 'Placa gesso 2.5x1.2m', 5.50, 12.00, 'unidade'),
+                                                                                                        (10, 'Tubo PVC Branco', 'Tubo PVC branco 100mm', 3.50, 8.50, 'metro'),
+                                                                                                        (11, 'Torneira Cromada', 'Torneira cozinha cromada', 15.00, 35.00, 'unidade'),
+                                                                                                        (12, 'Fechadura Cilindrica', 'Fechadura cilindrica latão', 8.00, 18.00, 'unidade'),
+                                                                                                        (13, 'Dobradiça Aço Inox', 'Dobradiça 3\" aço inox', 4.00, 9.00, 'unidade'),
+                                                                                                        (14, 'Chapa Compensado', 'Chapa compensado 18mm', 15.00, 32.00, 'unidade'),
+                                                                                                        (15, 'Isolamento Lã Mineral', 'Lã mineral 50mm rolo', 20.00, 45.00, 'rolo'),
+                                                                                                        (16, 'Estuque Gesso', 'Estuque gesso branco 25kg', 4.00, 10.00, 'saco'),
+                                                                                                        (17, 'Mosaico Cerâmica', 'Mosaico cerâmica 20x20cm', 6.00, 14.00, 'unidade'),
+                                                                                                        (18, 'Telha Cerâmica', 'Telha cerâmica vermelha', 0.80, 2.00, 'unidade'),
+                                                                                                        (19, 'Vidro Temperado', 'Vidro temperado 10mm', 25.00, 60.00, 'metro'),
+                                                                                                        (20, 'Escada Alumínio', 'Escada alumínio 3m', 80.00, 180.00, 'unidade'),
+                                                                                                        (21, 'Cabo Elétrico 2.5mm2', 'Cabo elétrico cobre 100m', 15.00, 35.00, 'bobina'),
+                                                                                                        (22, 'Tomada Branca', 'Tomada simples branca', 0.80, 2.00, 'unidade'),
+                                                                                                        (23, 'Interruptor Branco', 'Interruptor simples branco', 0.60, 1.50, 'unidade'),
+                                                                                                        (24, 'Lâmpada LED 10W', 'Lâmpada LED 10W branca fria', 4.00, 10.00, 'unidade'),
+                                                                                                        (25, 'Luminária Teto', 'Luminária teto metal branca', 12.00, 28.00, 'unidade'),
+                                                                                                        (26, 'Tomada Dupla Dupla', 'Tomada dupla dupla cinzenta', 2.50, 6.00, 'unidade'),
+                                                                                                        (27, 'Quadro Distribuição', 'Quadro distribuição 16 modulos', 35.00, 80.00, 'unidade'),
+                                                                                                        (28, 'Disjuntor Termomagnético', 'Disjuntor 32A 1P', 5.00, 12.00, 'unidade'),
+                                                                                                        (29, 'Relé Térmico', 'Relé térmico 32A', 8.00, 18.00, 'unidade'),
+                                                                                                        (30, 'Produto Espetacular', 'Artigo premium de qualidade superior', 50.00, 120.00, 'unidade');
 
 INSERT INTO PriceHistory (history_id, product_ref, sell_price, start_date, end_date) VALUES
-                                                                                         (1, 1, 1200.00, '2015-01-01', '2015-12-31'), -- Produto Espetacular em 2015
-                                                                                         (2, 1, 1000.00, '2016-01-01', NULL),
-                                                                                         (3, 2, 0.05, '2010-01-01', NULL),
-                                                                                         (4, 3, 10.00, '2015-01-01', '2015-12-31'), -- Martelo em 2015
-                                                                                         (5, 3, 12.00, '2016-01-01', NULL);
-
-DECLARE @i INT = 6;
-DECLARE @prod INT = 4;
-WHILE @i <= 40
-    BEGIN
-        INSERT INTO PriceHistory (history_id, product_ref, sell_price, start_date, end_date)
-        VALUES (@i, @prod, 20.00, '2014-01-01', NULL);
-        SET @i = @i + 1;
-        SET @prod = CASE WHEN @prod >= 35 THEN 4 ELSE @prod + 1 END;
-    END;
-GO
+                                                                                         (1, 1, 0.12, '2015-01-01', '2017-12-31'), (2, 1, 0.14, '2018-01-01', '2019-12-31'), (3, 1, 0.15, '2020-01-01', NULL),
+                                                                                         (4, 2, 0.07, '2015-01-01', '2017-12-31'), (5, 2, 0.08, '2018-01-01', NULL),
+                                                                                         (6, 3, 40.00, '2015-01-01', '2017-06-30'), (7, 3, 42.00, '2017-07-01', '2019-12-31'), (8, 3, 45.00, '2020-01-01', NULL),
+                                                                                         (9, 5, 10.00, '2015-01-01', '2018-12-31'), (10, 5, 11.00, '2019-01-01', '2019-12-31'), (11, 5, 12.00, '2020-01-01', NULL),
+                                                                                         (12, 10, 7.50, '2015-01-01', '2018-12-31'), (13, 10, 8.00, '2019-01-01', '2019-12-31'), (14, 10, 8.50, '2020-01-01', NULL),
+                                                                                         (15, 11, 30.00, '2015-01-01', '2017-12-31'), (16, 11, 32.00, '2018-01-01', '2019-12-31'), (17, 11, 35.00, '2020-01-01', NULL),
+                                                                                         (18, 15, 40.00, '2015-01-01', '2018-12-31'), (19, 15, 42.00, '2019-01-01', '2019-12-31'), (20, 15, 45.00, '2020-01-01', NULL),
+                                                                                         (21, 20, 150.00, '2015-01-01', '2018-12-31'), (22, 20, 160.00, '2019-01-01', '2019-12-31'), (23, 20, 180.00, '2020-01-01', NULL),
+                                                                                         (24, 30, 100.00, '2015-01-01', '2018-12-31'), (25, 30, 110.00, '2019-01-01', '2019-12-31'), (26, 30, 120.00, '2020-01-01', NULL),
+                                                                                         (27, 21, 30.00, '2015-01-01', '2018-12-31'), (28, 21, 35.00, '2019-01-01', NULL),
+                                                                                         (29, 22, 1.50, '2015-01-01', '2018-12-31'), (30, 22, 2.00, '2019-01-01', NULL);
 
 INSERT INTO WarehouseStockDefinition (warehouse_id, product_ref, min_stock) VALUES
-                                                                                (1, 1, 10), -- Armazem 1, Prod Espetacular
-                                                                                (1, 2, 1000), -- Armazem 1, Parafuso
-                                                                                (2, 1, 5),  -- XPTO, Prod Espetacular
-                                                                                (2, 2, 500); -- XPTO, Parafuso
-
-INSERT INTO WarehouseStockDefinition (warehouse_id, product_ref, min_stock)
-SELECT W.warehouse_id, P.product_ref, 10
-FROM Warehouse W, Product P
-WHERE W.warehouse_id > 2 AND P.product_ref > 2;
-GO
+                                                                                (1, 1, 100), (1, 2, 150), (1, 3, 5), (1, 4, 3), (1, 5, 10), (1, 6, 8), (1, 7, 2), (1, 8, 5), (1, 9, 4), (1, 10, 6),
+                                                                                (2, 1, 80), (2, 2, 120), (2, 3, 4), (2, 4, 3), (2, 5, 8), (2, 6, 6), (2, 7, 2), (2, 8, 4), (2, 9, 3), (2, 10, 5),
+                                                                                (3, 11, 3), (3, 12, 2), (3, 13, 5), (3, 14, 2), (3, 15, 1), (3, 16, 5), (3, 17, 10), (3, 18, 20), (3, 19, 1), (3, 20, 1),
+                                                                                (4, 21, 2), (4, 22, 30), (4, 23, 25), (4, 24, 20), (4, 25, 5), (4, 26, 15), (4, 27, 1), (4, 28, 5), (4, 29, 3), (4, 30, 1),
+                                                                                (5, 1, 120), (5, 2, 180), (5, 3, 6), (5, 4, 4), (5, 5, 12), (5, 6, 10), (5, 7, 3), (5, 8, 6), (5, 9, 5), (5, 10, 8),
+                                                                                (6, 11, 4), (6, 12, 3), (6, 13, 6), (6, 14, 3), (6, 15, 2), (6, 16, 6), (6, 17, 12), (6, 18, 25), (6, 19, 2), (6, 20, 2),
+                                                                                (7, 21, 3), (7, 22, 35), (7, 23, 28), (7, 24, 22), (7, 25, 6), (7, 26, 18), (7, 27, 2), (7, 28, 6), (7, 29, 4), (7, 30, 1),
+                                                                                (8, 1, 90), (8, 2, 140), (8, 3, 4), (8, 4, 3), (8, 5, 9), (8, 6, 7), (8, 7, 2), (8, 8, 5), (8, 9, 4), (8, 10, 6);
 
 INSERT INTO Stock (physical_zone_id, product_ref, quantity) VALUES
-                                                                (1, 1, 20), -- Arm 1, Zona 1, Prod 1
-                                                                (1, 2, 5000), -- Arm 1, Zona 1, Prod 2 (Muito stock)
-                                                                (3, 1, 0), -- XPTO, Zona 3, Prod 1 (Sem stock para teste)
-                                                                (3, 2, 100), -- XPTO, Zona 3, Prod 2
-                                                                (4, 3, 50);  -- XPTO, Zona 4, Prod 3
-
-INSERT INTO Stock (physical_zone_id, product_ref, quantity) VALUES (30, 4, 100);
-
-DECLARE @z INT = 5;
-WHILE @z <= 29
-    BEGIN
-        INSERT INTO Stock (physical_zone_id, product_ref, quantity) VALUES (@z, 5, 20); -- Stock seguro
-        SET @z = @z + 1;
-    END;
-GO
-
+                                                                (1, 1, 150), (1, 2, 200), (1, 3, 8), (1, 4, 5), (1, 5, 15), (1, 6, 12), (1, 7, 3), (1, 8, 8), (1, 9, 6), (1, 10, 10),
+                                                                (2, 11, 5), (2, 12, 4), (2, 13, 8), (2, 14, 3), (2, 15, 2), (2, 16, 8), (2, 17, 15), (2, 18, 30), (2, 19, 2), (2, 20, 2),
+                                                                (3, 21, 3), (3, 22, 40), (3, 23, 30), (3, 24, 25), (3, 25, 7), (3, 26, 20), (3, 27, 1), (3, 28, 6), (3, 29, 4), (3, 30, 1),
+                                                                (5, 1, 120), (5, 2, 180), (5, 3, 6), (5, 4, 4), (5, 5, 12), (5, 6, 10), (5, 7, 3), (5, 8, 6), (5, 9, 5), (5, 10, 8),
+                                                                (8, 11, 4), (8, 12, 3), (8, 13, 6), (8, 14, 3), (8, 15, 2), (8, 16, 6), (8, 17, 12), (8, 18, 25), (8, 19, 2), (8, 20, 2),
+                                                                (11, 1, 100), (11, 2, 160), (11, 3, 5), (11, 4, 3), (11, 5, 10), (11, 6, 8), (11, 7, 2), (11, 8, 5), (11, 9, 4), (11, 10, 6),
+                                                                (13, 21, 3), (13, 22, 35), (13, 23, 28), (13, 24, 22), (13, 25, 6), (13, 26, 18), (13, 27, 2), (13, 28, 6), (13, 29, 4), (13, 30, 1),
+                                                                (16, 1, 110), (16, 2, 170), (16, 3, 6), (16, 4, 4), (16, 5, 11), (16, 6, 9), (16, 7, 3), (16, 8, 6), (16, 9, 5), (16, 10, 7),
+                                                                (18, 11, 3), (18, 12, 2), (18, 13, 5), (18, 14, 2), (18, 15, 1), (18, 16, 5), (18, 17, 10), (18, 18, 20), (18, 19, 1), (18, 20, 1),
+                                                                (20, 1, 130), (20, 2, 190), (20, 3, 7), (20, 4, 5), (20, 5, 13), (20, 6, 11), (20, 7, 3), (20, 8, 7), (20, 9, 6), (20, 10, 9),
+                                                                (29, 1, 10), (29, 30, 500); -- Stock para Armazem XPTO (Query 2.3)
 
 INSERT INTO SalesOrder (order_id, registration_date, customer_id, salesperson_id, status) VALUES
-(1, '2015-05-20', 1, 30, 'Processada'),
-(2, '2015-06-20', 2, 31, 'Processada'),
-(3, '2018-03-10', 3, 2, 'Pendente'),
-(4, '2018-04-10', 4, 2, 'Pendente'),
-(5, '2018-07-01', 1, 30, 'Processada'),
-(6, '2018-08-01', 1, 30, 'Processada'),
-(7, '2019-01-15', 1, 30, 'Processada'),
-(8, '2019-02-15', 1, 30, 'Processada');
-
-DECLARE @i INT = 9;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO SalesOrder (order_id, registration_date, customer_id, salesperson_id, status)
-        VALUES (@i, '2020-01-01', 1, 30, 'Processada');
-        SET @i = @i + 1;
-    END;
-GO
+                                                                                              (1, '2015-02-10', 1, 9, 'Processada'), (2, '2015-03-15', 2, 10, 'Processada'), (3, '2015-04-20', 3, 9, 'Processada'),
+                                                                                              (4, '2015-05-25', 4, 11, 'Cancelada'), (5, '2015-06-30', 5, 12, 'Processada'), (6, '2015-07-10', 6, 10, 'Pendente'),
+                                                                                              (7, '2015-08-15', 7, 9, 'Processada'), (8, '2015-09-20', 8, 11, 'Processada'), (9, '2018-03-10', 1, 9, 'Processada'),
+                                                                                              (10, '2018-03-15', 2, 10, 'Processada'), (11, '2018-04-20', 9, 13, 'Processada'), (12, '2018-05-05', 11, 15, 'Pendente'),
+                                                                                              (13, '2018-06-01', 16, 16, 'Processada'), (14, '2018-06-15', 17, 17, 'Processada'), (15, '2018-07-01', 23, 19, 'Processada'),
+                                                                                              (16, '2018-08-10', 26, 20, 'Processada'), (17, '2018-08-15', 1, 9, 'Processada'), (18, '2018-09-20', 2, 10, 'Cancelada'),
+                                                                                              (19, '2018-10-25', 3, 9, 'Processada'), (20, '2019-01-05', 5, 12, 'Processada'), (21, '2019-02-10', 6, 10, 'Processada'),
+                                                                                              (22, '2019-03-15', 7, 9, 'Processada'), (23, '2019-04-20', 11, 15, 'Processada'), (24, '2019-05-25', 17, 17, 'Processada'),
+                                                                                              (25, '2019-06-30', 26, 20, 'Processada'), (26, '2019-07-10', 1, 9, 'Processada'), (27, '2019-08-15', 2, 10, 'Pendente'),
+                                                                                              (28, '2019-09-20', 4, 11, 'Processada'), (29, '2019-10-25', 5, 12, 'Processada'), (30, '2019-11-30', 6, 10, 'Processada');
 
 INSERT INTO SalesOrderLine (order_id, product_ref, quantity) VALUES
-(1, 1, 1),
-(2, 3, 200),
-(3, 2, 100),
-(4, 2, 100),
-(7, 2, 50),
-(8, 2, 50);
-DECLARE @i INT = 9;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO SalesOrderLine (order_id, product_ref, quantity) VALUES (@i, 2, 10);
-        SET @i = @i + 1;
-    END;
-GO
+                                                                 (1, 1, 50), (1, 2, 100), (1, 3, 2),
+                                                                 (2, 4, 1), (2, 5, 3), (2, 6, 2), (2, 30, 1),
+                                                                 (3, 11, 2), (3, 12, 1), (3, 13, 3),
+                                                                 (4, 1, 200), (4, 2, 300),
+                                                                 (5, 3, 2), (5, 4, 1), (5, 5, 5),
+                                                                 (6, 7, 1), (6, 8, 5),
+                                                                 (7, 20, 1), (7, 21, 1),
+                                                                 (8, 15, 2), (8, 16, 3),
+                                                                 (9, 1, 100), (9, 2, 150),
+                                                                 (10, 3, 2), (10, 4, 1),
+                                                                 (11, 11, 2), (11, 12, 1), (11, 30, 1),
+                                                                 (12, 5, 4), (12, 6, 2),
+                                                                 (13, 7, 2), (13, 8, 6),
+                                                                 (14, 20, 1), (14, 21, 2),
+                                                                 (15, 1, 50), (15, 2, 75),
+                                                                 (16, 3, 1), (16, 4, 2),
+                                                                 (17, 11, 1), (17, 12, 2),
+                                                                 (18, 13, 2), (18, 14, 1),
+                                                                 (19, 15, 3), (19, 16, 2),
+                                                                 (20, 1, 60), (20, 2, 90),
+                                                                 (21, 3, 2), (21, 4, 1),
+                                                                 (22, 5, 2), (22, 6, 3),
+                                                                 (23, 11, 2), (23, 12, 1),
+                                                                 (24, 20, 1), (24, 21, 1),
+                                                                 (25, 1, 40), (25, 2, 60),
+                                                                 (26, 7, 1), (26, 8, 4),
+                                                                 (27, 3, 1), (27, 4, 2),
+                                                                 (28, 15, 2), (28, 16, 1),
+                                                                 (29, 11, 1), (29, 12, 2),
+                                                                 (30, 13, 3), (30, 14, 1);
 
 INSERT INTO DispatchNote (dispatch_id, creation_date, creation_time, resp_employee_id, order_id) VALUES
-                                                                                                     (1, '2018-07-15', '09:00:00', 4, 5),
-                                                                                                     (2, '2018-08-15', '09:30:00', 4, 6);
-DECLARE @i INT = 3;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO DispatchNote (dispatch_id, creation_date, creation_time, resp_employee_id, order_id)
-        VALUES (@i, '2020-01-02', '14:00:00', 4, @i);
-        SET @i = @i + 1;
-    END;
-GO
+                                                                                                     (1, '2015-02-11', '09:30:00', 21, 1), (2, '2015-03-16', '10:15:00', 21, 2), (3, '2015-04-21', '08:45:00', 21, 3),
+                                                                                                     (4, '2015-06-01', '11:20:00', 23, 5), (5, '2015-08-16', '09:00:00', 23, 7), (6, '2015-09-21', '15:30:00', 23, 8),
+                                                                                                     (7, '2018-03-11', '08:30:00', 21, 9), (8, '2018-03-16', '09:45:00', 21, 10), (9, '2018-04-21', '10:15:00', 25, 11),
+                                                                                                     (10, '2018-06-02', '08:00:00', 25, 13), (11, '2018-06-16', '09:30:00', 25, 14), (12, '2018-07-02', '10:00:00', 29, 15),
+                                                                                                     (13, '2018-08-11', '11:00:00', 29, 16), (14, '2018-08-16', '14:30:00', 29, 17), (15, '2018-10-26', '09:15:00', 21, 19),
+                                                                                                     (16, '2019-01-06', '08:30:00', 21, 20), (17, '2019-02-11', '10:00:00', 23, 21), (18, '2019-03-16', '09:30:00', 23, 22),
+                                                                                                     (19, '2019-04-21', '11:15:00', 25, 23), (20, '2019-05-26', '10:45:00', 25, 24), (21, '2019-07-01', '08:45:00', 29, 25),
+                                                                                                     (22, '2019-07-11', '09:00:00', 29, 26), (23, '2019-08-16', '10:30:00', 21, 27), (24, '2019-09-21', '08:30:00', 21, 28),
+                                                                                                     (25, '2019-10-26', '11:00:00', 23, 29), (26, '2019-12-01', '10:15:00', 23, 30), (27, '2018-06-10', '07:30:00', 25, 12),
+                                                                                                     (28, '2018-07-15', '09:00:00', 29, 13), (29, '2015-07-15', '14:00:00', 21, 6), (30, '2019-03-20', '08:15:00', 25, 22);
 
 INSERT INTO DispatchNoteLine (dispatch_id, product_ref, physical_zone_id, quantity) VALUES
-                                                                                        (1, 2, 1, 10),
-                                                                                        (2, 2, 1, 10);
+                                                                                        (1, 1, 1, 50), (1, 2, 1, 100), (1, 3, 1, 2),
+                                                                                        (2, 4, 1, 1), (2, 5, 5, 3), (2, 6, 5, 2), (2, 30, 3, 1),
+                                                                                        (3, 11, 2, 2), (3, 12, 2, 1), (3, 13, 2, 3),
+                                                                                        (4, 1, 1, 200), (4, 2, 1, 300),
+                                                                                        (5, 3, 5, 2), (5, 4, 5, 1), (5, 5, 5, 5),
+                                                                                        (6, 7, 5, 1), (6, 8, 5, 5),
+                                                                                        (7, 20, 2, 1), (7, 21, 3, 1),
+                                                                                        (8, 15, 2, 2), (8, 16, 2, 3),
+                                                                                        (9, 1, 1, 100), (9, 2, 1, 150),
+                                                                                        (10, 3, 1, 2), (10, 4, 1, 1),
+                                                                                        (11, 11, 2, 2), (11, 12, 2, 1), (11, 30, 3, 1),
+                                                                                        (12, 5, 5, 4), (12, 6, 5, 2),
+                                                                                        (13, 7, 5, 2), (13, 8, 5, 6),
+                                                                                        (14, 20, 2, 1), (14, 21, 3, 2),
+                                                                                        (15, 1, 1, 50), (15, 2, 1, 75),
+                                                                                        (16, 3, 1, 1), (16, 4, 1, 2),
+                                                                                        (17, 11, 2, 1), (17, 12, 2, 2),
+                                                                                        (18, 13, 2, 2), (18, 14, 2, 1),
+                                                                                        (19, 15, 2, 3), (19, 16, 2, 2),
+                                                                                        (20, 1, 1, 60), (20, 2, 1, 90),
+                                                                                        (21, 3, 1, 2), (21, 4, 1, 1),
+                                                                                        (22, 5, 5, 2), (22, 6, 5, 3),
+                                                                                        (23, 11, 2, 2), (23, 12, 2, 1),
+                                                                                        (24, 20, 2, 1), (24, 21, 3, 1),
+                                                                                        (25, 1, 1, 40), (25, 2, 1, 60),
+                                                                                        (26, 7, 1, 1), (26, 8, 1, 4),
+                                                                                        (27, 3, 1, 1), (27, 4, 1, 2),
+                                                                                        (28, 15, 2, 2), (28, 16, 2, 1),
+                                                                                        (29, 11, 2, 1), (29, 12, 2, 2),
+                                                                                        (30, 13, 2, 3), (30, 14, 2, 1);
 
-DECLARE @i INT = 3;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO DispatchNoteLine (dispatch_id, product_ref, physical_zone_id, quantity)
-        VALUES (@i, 2, 1, 10);
-        SET @i = @i + 1;
-    END;
-GO
 INSERT INTO Transport (transport_id, carrier_id, dispatch_id, transport_datetime, hours_used) VALUES
-                                                                                                  (1, 1, 1, '2018-07-15 10:00:00', 2.5),
-                                                                                                  (2, 1, 2, '2018-08-15 10:00:00', 3.0);
-
-DECLARE @i INT = 3;
-WHILE @i <= 35
-    BEGIN
-        INSERT INTO Transport (transport_id, carrier_id, dispatch_id, transport_datetime, hours_used)
-        VALUES (@i, 1, @i, '2020-01-02 15:00:00', 1.0);
-        SET @i = @i + 1;
-    END;
-GO
-
-PRINT 'Povoamento de dados concluido com sucesso.'
+                                                                                                  (1, 1, 1, '2015-02-11 10:00:00', 2.5), (2, 2, 2, '2015-03-16 11:00:00', 3.0), (3, 3, 3, '2015-04-21 09:00:00', 2.0),
+                                                                                                  (4, 4, 4, '2015-06-01 12:00:00', 1.5), (5, 5, 5, '2015-08-16 10:00:00', 2.0), (6, 6, 6, '2015-09-21 16:00:00', 3.5),
+                                                                                                  (7, 7, 7, '2018-03-11 09:00:00', 2.5), (8, 8, 8, '2018-03-16 10:00:00', 3.0), (9, 9, 9, '2018-04-21 11:00:00', 2.0),
+                                                                                                  (10, 10, 10, '2018-06-02 09:00:00', 2.5), (11, 11, 11, '2018-06-16 10:00:00', 3.0), (12, 12, 12, '2018-07-02 11:00:00', 1.5),
+                                                                                                  (13, 13, 13, '2018-08-11 12:00:00', 2.0), (14, 14, 14, '2018-08-16 15:00:00', 3.5), (15, 15, 15, '2018-10-26 10:00:00', 2.5),
+                                                                                                  (16, 16, 16, '2019-01-06 09:00:00', 3.0), (17, 17, 17, '2019-02-11 11:00:00', 2.0), (18, 18, 18, '2019-03-16 10:00:00', 2.5),
+                                                                                                  (19, 19, 19, '2019-04-21 12:00:00', 3.0), (20, 20, 20, '2019-05-26 11:00:00', 1.5), (21, 21, 21, '2019-07-01 09:00:00', 2.0),
+                                                                                                  (22, 22, 22, '2019-07-11 10:00:00', 3.5), (23, 23, 23, '2019-08-16 11:00:00', 2.5), (24, 24, 24, '2019-09-21 09:00:00', 3.0),
+                                                                                                  (25, 25, 25, '2019-10-26 12:00:00', 2.0), (26, 26, 26, '2019-12-01 11:00:00', 2.5), (27, 27, 27, '2018-06-10 08:00:00', 3.0),
+                                                                                                  (28, 28, 28, '2018-07-15 10:00:00', 1.5), (29, 29, 29, '2015-07-15 15:00:00', 2.5), (30, 30, 30, '2019-03-20 09:00:00', 2.0);

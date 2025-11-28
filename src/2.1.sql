@@ -1,6 +1,6 @@
 SELECT
     W.name AS Nome_Armazem,
-    PZ.designation AS Nome_Zona_Fisica
+    PZ.designation AS Zona_Fisica
 FROM
     Warehouse W
         JOIN PhysicalZone PZ ON W.warehouse_id = PZ.warehouse_id

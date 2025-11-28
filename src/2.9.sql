@@ -1,7 +1,7 @@
 SELECT
     DN.dispatch_id,
     DN.creation_date,
-    SO.registration_date AS data_encomenda
+    DN.creation_time
 FROM
     DispatchNote DN
         JOIN SalesOrder SO ON DN.order_id = SO.order_id

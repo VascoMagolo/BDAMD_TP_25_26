@@ -1,7 +1,7 @@
 SELECT DISTINCT
     Emp.employee_id,
     Emp.name,
-    GZ.designation AS zona_geografica
+    GZ.designation AS Zona
 FROM
     Employee Emp
         JOIN GeographicZone GZ ON Emp.id_geo_zone = GZ.id_geo_zone

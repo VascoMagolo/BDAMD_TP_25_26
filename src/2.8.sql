@@ -1,12 +1,12 @@
 SELECT
-    Emp.name
+    E.name
 FROM
-    Employee Emp
-        JOIN SalesOrder SO ON Emp.employee_id = SO.salesperson_id
+    Employee E
+        JOIN SalesOrder SO ON E.employee_id = SO.salesperson_id
 WHERE
-    Emp.employee_id NOT IN (SELECT DISTINCT supervisor_id FROM Employee WHERE supervisor_id IS NOT NULL)
+    E.employee_id NOT IN (SELECT DISTINCT supervisor_id FROM Employee WHERE supervisor_id IS NOT NULL)
 GROUP BY
-    Emp.employee_id, Emp.name
+    E.employee_id, E.name
 HAVING
     COUNT(SO.order_id) > ALL (
         SELECT COUNT(SO2.order_id)

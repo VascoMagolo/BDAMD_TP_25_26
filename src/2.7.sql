@@ -1,7 +1,7 @@
 SELECT
     P.name AS Produto,
     MONTH(SO.registration_date) AS Mes,
-    SUM(SOL.quantity) AS Volume_Mensal_Encomendado
+    SUM(SOL.quantity) AS Volume_Mensal
 FROM
     Product P
         JOIN SalesOrderLine SOL ON P.product_ref = SOL.product_ref
